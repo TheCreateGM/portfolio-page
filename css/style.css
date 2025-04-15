@@ -1,0 +1,242 @@
+/* --- Previous styles from last response --- */
+/* Basic Resets and Variables */
+:root {
+    --primary-bg: #edf2fc; /* Light theme background */
+    --secondary-bg: #e0e0e0; /* Light theme card/box background */
+    --footer-bg: #c8c8c8; /* Light theme footer background */
+    --text-color: #212121; /* Light theme text */
+    --text-light: #555;
+    --border-color: #dbdbdb;
+    --link-color: #3273dc; /* Bulma default link */
+    --link-hover-color: #363636;
+    --button-bg: #fff;
+    --button-hover-bg: #f5f5f5;
+    --navbar-bg: var(--primary-bg); /* Navbar background */
+    --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    --transition-speed: 0.3s;
+}
+
+body[data-theme="dark"] {
+    --primary-bg: #000106; /* Dark theme background */
+    --secondary-bg: #282828; /* Dark theme card/box background */
+    --footer-bg: #1a1a1a; /* Dark theme footer background */
+    --text-color: #fff; /* Dark theme text */
+    --text-light: #aaa;
+    --border-color: #444;
+    --link-color: #6e9cee; /* Lighter link for dark bg */
+    --link-hover-color: #ccc;
+    --button-bg: #333;
+    --button-hover-bg: #444;
+    --navbar-bg: #111; /* Darker navbar background */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+/* Apply variables */
+html {
+    scroll-behavior: smooth; /* Enable smooth scrolling */
+}
+body {
+    background-color: var(--primary-bg);
+    color: var(--text-color);
+    transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+    font-family: sans-serif;
+    padding-top: 52px;
+}
+.main-content {
+    min-height: calc(100vh - 52px - 72px);
+    padding-bottom: 2rem;
+}
+/* Navbar */
+.navbar {
+    background-color: var(--navbar-bg) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color var(--transition-speed) ease;
+}
+.navbar-item, .navbar-link, .navbar-burger span {
+    color: var(--text-color) !important;
+}
+.navbar-item:hover, .navbar-link:hover {
+    background-color: var(--secondary-bg) !important;
+    color: var(--link-hover-color) !important;
+}
+.navbar-burger {
+     color: var(--text-color) !important;
+}
+/* Footer */
+.footer {
+    background-color: var(--footer-bg);
+    color: var(--text-color);
+    padding: 1.5rem 1.5rem;
+    transition: background-color var(--transition-speed) ease;
+}
+.footer strong {
+     color: var(--text-color);
+}
+/* General Elements */
+h1, h2, h3, h4, h5, h6, .title, .subtitle {
+    color: var(--text-color);
+}
+p {
+    color: var(--text-light);
+}
+a {
+    color: var(--link-color);
+}
+a:hover {
+    color: var(--link-hover-color);
+}
+/* Cards and Boxes */
+.card, .box {
+    background-color: var(--secondary-bg);
+    color: var(--text-color);
+    box-shadow: var(--card-shadow);
+    border: 1px solid var(--border-color);
+    transition: background-color var(--transition-speed) ease, border-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+.card-header-title, .card-footer-item {
+     color: var(--text-color);
+}
+.card-content p {
+    color: var(--text-light);
+}
+/* Buttons */
+.button {
+    background-color: var(--button-bg);
+    color: var(--text-color);
+    border-color: var(--border-color);
+}
+.button:hover {
+    background-color: var(--button-hover-bg);
+    border-color: var(--border-color);
+     color: var(--text-color);
+}
+.button.is-link {
+    background-color: var(--link-color);
+    border-color: transparent;
+    color: #fff;
+}
+.button.is-link:hover {
+     background-color: darken(var(--link-color), 5%);
+}
+/* Specific page styles */
+.hero.is-medium .hero-body {
+     padding-top: 6rem;
+     padding-bottom: 6rem;
+}
+.home-card-link .card {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.home-card-link .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+body[data-theme="dark"] .home-card-link .card:hover {
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5);
+}
+.project-card .card-image img {
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+}
+.project-card .tech-logos img {
+    height: 24px;
+    width: auto;
+    margin-right: 5px;
+    opacity: 0.7;
+}
+.social-icon-link {
+    display: inline-block;
+    margin: 0.5rem;
+    transition: transform 0.2s ease;
+    font-size: 2.5rem; /* Make FA icons larger */
+    color: var(--text-color); /* Use theme text color */
+}
+.social-icon-link:hover {
+    transform: scale(1.1);
+    color: var(--link-color); /* Use link color on hover */
+}
+/* Remove img styling for social icons as they are now FA */
+/*#theme-toggle img { ... } */
+body[data-theme="dark"] #theme-toggle img {
+    transform: rotate(180deg);
+}
+/* Info page skill image */
+.info-skill-image {
+    max-width: 100%; height: auto; object-fit: contain;
+    border-radius: 5px; margin-bottom: 1rem;
+}
+/* Gallery page item image (used in information.php) */
+.gallery-item img {
+    border-radius: 5px; box-shadow: var(--card-shadow);
+    width: 100%; height: auto; aspect-ratio: 16/9; object-fit: cover;
+}
+.gallery-item .card-content { padding: 0.5rem; }
+
+/* --- NEW Styles --- */
+
+/* Laptop Animation Container */
+#laptop-animation-container {
+    position: sticky; /* Sticks relative to viewport */
+    top: 100px;      /* Adjust vertical position */
+    /* Adjust left/right and width as needed */
+    right: 5%;
+    width: 250px;    /* Example width */
+    height: 400px;   /* Example height */
+    z-index: 10;     /* Ensure it's above some content if overlapping */
+    pointer-events: none; /* Prevent interaction with the container */
+    margin-bottom: 30vh; /* Push content below it further down */
+    display: none; /* Hide initially, JS will show on relevant pages */
+}
+
+/* Individual Component Styles (Initial State) */
+#laptop-animation-container img {
+    position: absolute;
+    max-width: 80%; /* Adjust size within container */
+    height: auto;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Center initially */
+    opacity: 0;
+    transition: opacity 0.5s ease; /* Add fade effect */
+}
+
+/* Specific initial positions (example) */
+#anim-board { top: 40%; opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
+#anim-cpu { top: 35%; left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); }
+#anim-ram { top: 45%; left: 30%; opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(10deg); }
+#anim-gpu { top: 55%; left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.7) translateY(20px); }
+#anim-ssd { top: 65%; left: 70%; opacity: 0; transform: translate(-50%, -50%) scale(0.6) translateX(-15px); }
+
+
+/* Scroll to Top Button */
+#scroll-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 1000;
+    transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+    opacity: 0;
+    transform: translateY(100px); /* Start off-screen */
+    pointer-events: none; /* Initially not clickable */
+}
+
+#scroll-to-top.visible {
+    opacity: 1;
+    transform: translateY(0); /* Slide in */
+    pointer-events: auto; /* Make clickable */
+}
+
+/* Gallery Page Specific Grid (Replaces gallery.css .box styles using Bulma) */
+.gallery-grid {
+    /* Bulma columns handle responsiveness */
+}
+.gallery-column img {
+    width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 5px;
+    margin-bottom: 1rem; /* Spacing between images in a column */
+    box-shadow: var(--card-shadow);
+}
