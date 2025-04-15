@@ -8,7 +8,7 @@
     {"name": "itch.io", "url": "https://axogm.itch.io/", "icon": "img/media-social/7.png", "fa_class": "fab fa-itch-io"},
     {"name": "Discord", "url": "https://discord.com/invite/TNNhyxdP2G", "icon": "img/media-social/8.png", "fa_class": "fab fa-discord"},
     {"name": "Twitch", "url": "https://www.twitch.tv/thecreategmlive", "icon": "img/media-social/9.png", "fa_class": "fab fa-twitch"},
-    {"name": "GitHub", "url": "https://github.com/AxoGM", "icon": "img/media-social/10.png", "fa_class": "fab fa-github"},
+    {"name": "GitHub", "url": "https://github.com/TheCreateGM", "icon": "img/media-social/10.png", "fa_class": "fab fa-github"},
     {"name": "TurboSquid", "url": "https://www.turbosquid.com/Search/Artists/AxoGM", "icon": "img/media-social/11.png", "fa_class": "fas fa-cube"},
     {"name": "CGTrader", "url": "https://www.cgtrader.com/creategm10", "icon": "img/media-social/12.png", "fa_class": "fas fa-cubes"}
   ]
