@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Photograph Stuff</title>
+        <link rel="icon" type="image/x-icon" href="../icon.png" />
+        <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+        <link rel="stylesheet" href="gallery.css" />
+    </head>
+    <body>
+        <section class="hero">
+            <nav>
+                <ul>
+                    <li>
+                        <a href="../index.html">HOME</a>
+                    </li>
+                    <li>
+                        <a href="../information.html">ABOUT</a>
+                    </li>
+                </ul>
+                <!-- dark mode and light mode -->
+                <img src="../img/moon.png" id="icon" />
+            </nav>
+            <!-- Header -->
+            <header class="text-center py-6">
+                <h1 class="text-3xl font-bold">Photograph Stuff</h1>
+                <p class="text-gray-400 italic">
+                    My photograph stuff that I take.
+                </p>
+            </header>
+
+            <!-- Gallery Section -->
+            <section class="stuff hero">
+                <div class="box">
+                    <div class="dream">
+                        <img src="img/model/1.png" />
+                        <img src="img/model/4.png" />
+                        <img src="img/model/7.png" />
+                        <img src="img/model/10.png" />
+                        <img src="img/model/13.png" />
+                        <img src="img/model/16.png" />
+                        <img src="img/model/19.png" />
+                        <img src="img/model/22.png" />
+                        <img src="img/model/25.png" />
+                        <img src="img/model/28.png" />
+                        <img src="img/model/31.png" />
+                        <img src="img/model/34.png" />
+                        <img src="img/model/37.png" />
+                        <img src="img/model/40.png" />
+                        <img src="img/model/43.png" />
+                        <img src="img/model/46.png" />
+                        <img src="img/model/49.png" />
+                    </div>
+                    <div class="dream">
+                        <img src="img/model/2.png" />
+                        <img src="img/model/5.png" />
+                        <img src="img/model/8.png" />
+                        <img src="img/model/11.png" />
+                        <img src="img/model/14.png" />
+                        <img src="img/model/17.png" />
+                        <img src="img/model/20.png" />
+                        <img src="img/model/23.png" />
+                        <img src="img/model/26.png" />
+                        <img src="img/model/29.png" />
+                        <img src="img/model/32.png" />
+                        <img src="img/model/35.png" />
+                        <img src="img/model/38.png" />
+                        <img src="img/model/41.png" />
+                        <img src="img/model/44.png" />
+                        <img src="img/model/47.png" />
+                        <img src="img/model/50.png">
+                    </div>
+                    <div class="dream">
+                        <img src="img/model/3.png" />
+                        <img src="img/model/6.png" />
+                        <img src="img/model/9.png" />
+                        <img src="img/model/12.png" />
+                        <img src="img/model/15.png" />
+                        <img src="img/model/18.png" />
+                        <img src="img/model/21.png" />
+                        <img src="img/model/24.png" />
+                        <img src="img/model/27.png" />
+                        <img src="img/model/30.png" />
+                        <img src="img/model/33.png" />
+                        <img src="img/model/36.png" />
+                        <img src="img/model/39.png" />
+                        <img src="img/model/42.png" />
+                        <img src="img/model/45.png" />
+                        <img src="img/model/48.png" />
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer -->
+            <footer class="text-center py-6 text-gray-500 text-sm">
+                <p>© 2025 @AxoGM - All rights reserved</p>
+            </footer>
+        </section>
+        <script>
+            // dark mode
+            var icon = document.getElementById("icon");
+            icon.onclick = function () {
+                document.body.classList.toggle("dark-theme");
+                if (document.body.classList.contains("dark-theme")) {
+                    icon.src = "../img/sun.png";
+                } else {
+                    icon.src = "../img/moon.png";
+                }
+            };
+        </script>
+    </body>
+</html>
