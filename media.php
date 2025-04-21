@@ -1,10 +1,10 @@
 <?php
 $pageTitle = 'Social Media - AxoGM';
-$assetBaseUrl = './';
+// Use the assetBaseUrl from header.php
+$assetBaseUrl = '/'; // Make sure this matches the one in header.php
 include 'templates/header.php';
 
-// Load data from JSON - with basic error check
-$socialData = file_exists('data/social.json') ? json_decode(file_get_contents('data/social.json'), true) : null;
+// Social data is now fetched by the React component, so we don't need to load it here.
 ?>
 
 <div class="container is-fluid px-0">
@@ -16,20 +16,9 @@ $socialData = file_exists('data/social.json') ? json_decode(file_get_contents('d
                     <h1 class="title is-2 has-text-centered">Social Media</h1>
                     <p class="subtitle is-5 has-text-centered">Find me on these platforms:</p>
 
-                    <div class="buttons is-centered are-large"> <!-- Use Bulma buttons for alignment -->
-                        <?php if ($socialData && !empty($socialData)): ?>
-                            <?php foreach ($socialData as $platform): ?>
-                                 <?php if (!empty($platform['url']) && !empty($platform['fa_class']) && !empty($platform['name'])): ?>
-                                <a href="<?php echo htmlspecialchars($platform['url']); ?>" target="_blank" rel="noopener noreferrer" class="button is-ghost social-icon-link" title="<?php echo htmlspecialchars($platform['name']); ?>">
-                                    <span class="icon is-large">
-                                        <i class="<?php echo htmlspecialchars($platform['fa_class']); ?>"></i>
-                                    </span>
-                                </a>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        <?php elseif($socialData === null): ?>
-                             <p class="has-text-centered notification is-warning">Could not load social media links.</p>
-                        <?php endif; ?>
+                    <?php /* React component will render social links here */ ?>
+                    <div id="social-links-root" class="buttons is-centered are-large">
+                         <?php /* React will replace this content */ ?>
                     </div>
 
                     <hr>
@@ -54,3 +43,19 @@ $socialData = file_exists('data/social.json') ? json_decode(file_get_contents('d
 
 
 <?php include 'templates/footer.php'; ?>
+
+<!-- Include React components needed for this page -->
+<script src="<?php echo $assetBaseUrl; ?>js/components/SocialLinks.js"></script>
+
+<script>
+    // Wait for the DOM to be fully loaded before rendering React
+    document.addEventListener('DOMContentLoaded', () => {
+        const assetBaseUrl = '<?php echo $assetBaseUrl; ?>'; // Pass assetBaseUrl to JS
+
+        // Render SocialLinks component
+        const socialLinksRoot = document.getElementById('social-links-root');
+        if (socialLinksRoot) {
+            ReactDOM.render(React.createElement(SocialLinks, { assetBaseUrl: assetBaseUrl }), socialLinksRoot);
+        }
+    });
+</script>

@@ -1,5 +1,7 @@
 <?php
 $pageTitle = 'AxoGM - Home';
+// Use the assetBaseUrl from header.php
+$assetBaseUrl = '/'; // Make sure this matches the one in header.php
 include 'templates/header.php';
 ?>
 
@@ -23,7 +25,7 @@ include 'templates/header.php';
                      <div class="card">
                          <div class="card-image">
                              <figure class="image is-4by3">
-                                 <img src="img/card/2.png" alt="Information Thumbnail">
+                                 <img src="<?php echo $assetBaseUrl; ?>img/card/2.png" alt="Information Thumbnail">
                              </figure>
                          </div>
                          <div class="card-content">
@@ -42,7 +44,7 @@ include 'templates/header.php';
                      <div class="card">
                          <div class="card-image">
                              <figure class="image is-4by3">
-                                 <img src="img/card/1.png" alt="Project Thumbnail">
+                                 <img src="<?php echo $assetBaseUrl; ?>img/card/1.png" alt="Project Thumbnail">
                              </figure>
                          </div>
                          <div class="card-content">
@@ -61,7 +63,7 @@ include 'templates/header.php';
                      <div class="card">
                          <div class="card-image">
                              <figure class="image is-4by3">
-                                 <img src="img/card/3.png" alt="Social Media Thumbnail">
+                                 <img src="<?php echo $assetBaseUrl; ?>img/card/3.png" alt="Social Media Thumbnail">
                              </figure>
                          </div>
                          <div class="card-content">

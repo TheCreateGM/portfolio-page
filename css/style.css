@@ -1,4 +1,4 @@
-/* --- Previous styles from last response --- */
+/* --- Previous styles --- */
 /* Basic Resets and Variables */
 :root {
     --primary-bg: #edf2fc; /* Light theme background */
@@ -16,7 +16,9 @@
     --transition-speed: 0.3s;
 }
 
-body[data-theme="dark"] {
+/* Use the data-theme attribute set by Alpine.js */
+body[data-theme="dark"],
+html[data-theme="dark"] body { /* Apply to body when html[data-theme="dark"] is set */
     --primary-bg: #000106; /* Dark theme background */
     --secondary-bg: #282828; /* Dark theme card/box background */
     --footer-bg: #1a1a1a; /* Dark theme footer background */
@@ -40,18 +42,26 @@ body {
     color: var(--text-color);
     transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
     font-family: sans-serif;
-    padding-top: 52px;
+    padding-top: 52px; /* Account for fixed navbar height */
 }
 .main-content {
-    min-height: calc(100vh - 52px - 72px);
+    min-height: calc(100vh - 52px - 72px); /* Adjust height based on navbar (52px) and footer (approx 72px, or use auto/flexbox) */
     padding-bottom: 2rem;
 }
 /* Navbar */
 .navbar {
     background-color: var(--navbar-bg) !important;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    transition: background-color var(--transition-speed) ease;
+    box-shadow: none; /* Start with no shadow */
+    transition: background-color var(--transition-speed) ease, box-shadow var(--transition-speed) ease; /* Animate shadow */
 }
+/* --- NEW: Navbar shadow on scroll --- */
+.navbar.is-scrolled {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+body[data-theme="dark"] .navbar.is-scrolled {
+     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for dark mode */
+}
+
 .navbar-item, .navbar-link, .navbar-burger span {
     color: var(--text-color) !important;
 }
@@ -116,18 +126,31 @@ a:hover {
     color: #fff;
 }
 .button.is-link:hover {
-     background-color: darken(var(--link-color), 5%);
+     /* A simple way to darken in CSS */
+     filter: brightness(0.9);
 }
+
+/* --- Icon spacing --- */
+/* Target icons within elements that typically contain both icon and text */
+.button .icon,
+.card-footer-item .icon {
+    margin-right: 0.25rem; /* Adjust as needed, 0.25rem is 4px */
+}
+
+
 /* Specific page styles */
+/* Hero is the first section, doesn't need fade-in entry animation */
 .hero.is-medium .hero-body {
      padding-top: 6rem;
      padding-bottom: 6rem;
 }
+
 .home-card-link .card {
     height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease; /* Add transition */
 }
 .home-card-link .card:hover {
     transform: translateY(-5px);
@@ -149,7 +172,7 @@ body[data-theme="dark"] .home-card-link .card:hover {
 .social-icon-link {
     display: inline-block;
     margin: 0.5rem;
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, color 0.2s ease; /* Add color transition */
     font-size: 2.5rem; /* Make FA icons larger */
     color: var(--text-color); /* Use theme text color */
 }
@@ -159,9 +182,15 @@ body[data-theme="dark"] .home-card-link .card:hover {
 }
 /* Remove img styling for social icons as they are now FA */
 /*#theme-toggle img { ... } */
-body[data-theme="dark"] #theme-toggle img {
+/* Apply rotation using CSS transition based on the data-theme attribute */
+#theme-toggle img {
+    transition: transform 0.3s ease;
+}
+
+html[data-theme="dark"] #theme-toggle img {
     transform: rotate(180deg);
 }
+
 /* Info page skill image */
 .info-skill-image {
     max-width: 100%; height: auto; object-fit: contain;
@@ -174,43 +203,31 @@ body[data-theme="dark"] #theme-toggle img {
 }
 .gallery-item .card-content { padding: 0.5rem; }
 
-/* --- NEW Styles --- */
-
-/* Laptop Animation Container */
+/* --- Laptop Animation (Not used in PHP, but keeping styles) --- */
 #laptop-animation-container {
-    position: sticky; /* Sticks relative to viewport */
-    top: 100px;      /* Adjust vertical position */
-    /* Adjust left/right and width as needed */
+    position: sticky;
+    top: 100px;
     right: 5%;
-    width: 250px;    /* Example width */
-    height: 400px;   /* Example height */
-    z-index: 10;     /* Ensure it's above some content if overlapping */
-    pointer-events: none; /* Prevent interaction with the container */
-    margin-bottom: 30vh; /* Push content below it further down */
-    display: none; /* Hide initially, JS will show on relevant pages */
+    width: 250px;
+    height: 400px;
+    z-index: 10;
+    pointer-events: none;
+    margin-bottom: 30vh;
+    display: none; /* Hidden by default */
+    /* If this were used on a page, you'd need JS to change display */
 }
-
-/* Individual Component Styles (Initial State) */
 #laptop-animation-container img {
     position: absolute;
-    max-width: 80%; /* Adjust size within container */
+    max-width: 80%;
     height: auto;
     left: 50%;
     top: 50%;
-    transform: translate(-50%, -50%); /* Center initially */
+    transform: translate(-50%, -50%);
     opacity: 0;
-    transition: opacity 0.5s ease; /* Add fade effect */
+    transition: opacity 0.5s ease;
 }
 
-/* Specific initial positions (example) */
-#anim-board { top: 40%; opacity: 0; transform: translate(-50%, -50%) scale(0.8); }
-#anim-cpu { top: 35%; left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-15deg); }
-#anim-ram { top: 45%; left: 30%; opacity: 0; transform: translate(-50%, -50%) scale(0.6) rotate(10deg); }
-#anim-gpu { top: 55%; left: 50%; opacity: 0; transform: translate(-50%, -50%) scale(0.7) translateY(20px); }
-#anim-ssd { top: 65%; left: 70%; opacity: 0; transform: translate(-50%, -50%) scale(0.6) translateX(-15px); }
-
-
-/* Scroll to Top Button */
+/* --- Scroll to Top Button --- */
 #scroll-to-top {
     position: fixed;
     bottom: 20px;
@@ -218,25 +235,49 @@ body[data-theme="dark"] #theme-toggle img {
     z-index: 1000;
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
     opacity: 0;
-    transform: translateY(100px); /* Start off-screen */
-    pointer-events: none; /* Initially not clickable */
+    transform: translateY(100px);
+    pointer-events: none;
 }
 
 #scroll-to-top.visible {
     opacity: 1;
-    transform: translateY(0); /* Slide in */
-    pointer-events: auto; /* Make clickable */
+    transform: translateY(0);
+    pointer-events: auto;
 }
 
-/* Gallery Page Specific Grid (Replaces gallery.css .box styles using Bulma) */
+/* --- Animate on Scroll (Fade-in/Slide-up) --- */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(20px); /* Start slightly below final position */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    /* Optional: Add a small delay for staggered effect if applying to multiple elements */
+    /* transition-delay: 0.1s; */
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- Gallery Page Specific Grid (Used in archive/2a2t.html and potentially others) --- */
+/* The Bulma grid classes are handled by the Bulma CDN and Tailwind JIT */
 .gallery-grid {
-    /* Bulma columns handle responsiveness */
+    /* No specific styles needed here */
 }
 .gallery-column img {
     width: 100%;
     height: auto;
     display: block;
     border-radius: 5px;
-    margin-bottom: 1rem; /* Spacing between images in a column */
-    box-shadow: var(--card-shadow);
+    margin-bottom: 1rem;
 }
+/* Ensure images inside archive/2a2t.html grid also get styling */
+.archive .grid img { /* Added .archive class to body/container if needed */
+     border-radius: 5px;
+     box-shadow: 0 2px 8px rgba(0,0,0,0.1); /* Simplified shadow for this grid */
+}
+
+/* --- React Component Specific Styles (Optional) --- */
+/* Add styles for loading/error messages if needed */
+.notification.is-info.is-light { /* Bulma built-in */ }
+.notification.is-warning { /* Bulma built-in */ }

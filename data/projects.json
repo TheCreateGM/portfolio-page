@@ -1,6 +1,13 @@
 {
     "website": [
       {
+        "title": "portfolio 2025",
+        "image": "img/project/stuff/10.png",
+        "live_link": "http://axogmweb.unaux.com/",
+        "repo_link": null,
+        "logos": ["img/project/logo/1.png", "img/project/logo/2.png", "img/project/logo/3.png", "img/project/logo/9.png"]
+      },
+      {
         "title": "portfolio 2022",
         "image": "img/project/stuff/1.png",
         "live_link": "http://axogmweb.unaux.com/",
@@ -45,6 +52,22 @@
         "live_link": "project/game/shotgame/shotgame.html",
         "repo_link": null,
         "logos": ["img/project/logo/1.png", "img/project/logo/2.png", "img/project/logo/3.png"]
+      },
+      {
+        "title": "minecraft clone go [Golang]",
+        "image": "img/project/stuff/11.png",
+        "live_link": null,
+        "repo_link": "https://github.com/TheCreateGM/minecraft-clone-go",
+        "logos": ["img/project/logo/10.png"]
+      }
+    ],
+    "Application": [
+      {
+        "title": "note app [python]",
+        "image": "img/project/stuff/12.png",
+        "live_link": null,
+        "repo_link": "https://github.com/TheCreateGM/note-app",
+        "logos": ["img/project/logo/8.png"]
       }
     ],
     "other": [
